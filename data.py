@@ -83,3 +83,28 @@ def log_to_db(action, parameter, status):
 
 
     def get_stat():
+        db = dbconnect()
+        cursor = db.cursor()
+        try:
+            backup_count_query = "SELECT COUNT(*) FROM log WHERE action='BACKUP'"
+            cursor.execute(backup_count_query)
+            number_of_backups = cursor.fetchone()
+
+            success_count_query = "SELECT COUNT(*) FROM log WHERE status='SUCCESS' AND action='BACKUP'"
+            cursor.execute(success_count_query)
+            number_of_successes = cursor.fetchone()
+
+            error_count_query = "SELECT COUNT(*) FROM log WHERE status='ERROR' AND action='BACKUP'"
+            cursor.execute(error_count_query)
+            number_of_errors = cursor.fetchone()
+        finally:
+            cursor.close()
+            db.close()
+
+        log_to_db("GET STATS", "", "SUCCESS")
+        return jsonify({
+            "number-of-backups": number_of_backups[0],
+            "successful-backups": number_of_successes[0],
+            "failed-backups": number_of_errors[0]
+    })
+    dictionary
