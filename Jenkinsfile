@@ -16,6 +16,11 @@ pipeline {
         sh "sudo docker push localhost:8083/pythonapp:latest"
       }
     }
+    stage('pull') {
+      steps {
+        sh "sudo docker pull localhost:8083/pythonapp:latest"
+      }
+    }
     stage('deploy') {
       steps {
         sh "sudo docker stop project1pythonbuild"
