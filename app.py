@@ -4,9 +4,9 @@ from data import get_log, get_stat
 
 app = Flask(__name__)
 
-@app.route('/dog')
-def dog():
-    return "test"
+@app.route('/ash')
+def ash():
+    return "hope this works"
 
 # Declares the route of where this function will perform.
 # Gets the logs based on the start and end time inputted into the curl command
