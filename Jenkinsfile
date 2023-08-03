@@ -16,7 +16,7 @@ pipeline {
     }
     stage('pull') {
       steps {
-        sh "sudo docker pull -t localhost8083/project:1jenkinsversion ."
+        sh "sudo docker pull localhost8083/project:1jenkinsversion ."
       }
     }
     stage('deploy') {
