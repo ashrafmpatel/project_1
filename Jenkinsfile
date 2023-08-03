@@ -17,7 +17,7 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh "sudo docker run -d -p 5000:5000 -e SQL_HOST=host.docker.internal --name project1pythonbuild localhost:8083/project1:jenkinsversion ."
+        sh "sudo docker run -d -p 5000:5000 -e SQL_HOST=host.docker.internal --name project1pythonbuild localhost:8083/project1:jenkinsversion"
       }
     } 
   }
