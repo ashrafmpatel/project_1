@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/ash')
 def ash():
-    return "Hope this works"
+    return "Hopethisworks"
 
 @app.route('/log')
 def log():
