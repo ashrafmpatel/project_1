@@ -7,8 +7,8 @@ app = Flask(__name__)
 # Declares the route of where this function will perform.
 # Gets the logs based on the start and end time inputted into the curl command
 
-@app.route('/ASH')
-def ASH():
+@app.route('/ash')
+def ash():
     return "Hope this works"
 
 @app.route('/log')
